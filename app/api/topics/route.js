@@ -16,3 +16,16 @@ export async function POST(req) {
     );
   }
 }
+
+export async function GET() {
+  await connectMongoDB();
+  const topics = await Topic.find();
+  return NextResponse.json({ topics });
+}
+
+export async function DELETE(req) {
+  const id = req.nextUrl.searchParams.get("id");
+  await connectMongoDB();
+  await Topic.findByIdAndDelete(id);
+  return NextResponse.json({ message: "Topic Deleted" }, { status: 200 });
+}
