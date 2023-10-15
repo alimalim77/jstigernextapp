@@ -1,6 +1,8 @@
 import EditTopicForm from "@/components/EditTopicForm";
 
-const EditTopic = () => {
+const EditTopic = ({ params }) => {
+  const { id } = params;
+  console.log(id);
   return <EditTopicForm />;
 };
 
