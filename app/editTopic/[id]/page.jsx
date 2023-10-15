@@ -18,6 +18,7 @@ const EditTopic = async ({ params }) => {
   const { id } = params;
   const { topic } = await getTopicById(id);
   const { title, description } = topic;
+  console.log("Current is", title, description);
   return <EditTopicForm id={id} title={title} description={description} />;
 };
 

@@ -17,8 +17,17 @@ const EditTopicForm = ({ id, title, description }) => {
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ newTitle, newDescription }),
+          body: JSON.stringify({
+            title: newTitle,
+            description: newDescription,
+          }),
         }
+      );
+      console.log(
+        JSON.stringify({
+          title: newTitle,
+          description: newDescription,
+        })
       );
       if (!res.ok) {
         throw new Error("Couldn't connect to server");
@@ -35,6 +44,7 @@ const EditTopicForm = ({ id, title, description }) => {
       <input
         onChange={(e) => {
           setNewTitle(e.target.value);
+          console.log(newTitle);
         }}
         value={newTitle}
         className="border border-slate-500 px-8 py-2"
