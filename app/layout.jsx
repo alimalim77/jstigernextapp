@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { NextAuthProvider } from "./Providers";
-import UserInfo from "@/components/UserInfo";
 
 export const metadata = {
   title: "Next.js",
@@ -15,7 +14,6 @@ export default function RootLayout({ children }) {
         <body>
           <div className="max-w-3xl mx-auto p-4">
             <Navbar />
-            <UserInfo />
             <div className="mt-8"> {children}</div>
           </div>
         </body>
