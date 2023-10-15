@@ -1,7 +1,7 @@
 import React from "react";
 
 const EditTopicForm = () => {
-  return <div>Edit Topic From</div>;
+  return <div></div>;
 };
 
 export default EditTopicForm;
