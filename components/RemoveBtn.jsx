@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const RemoveBtn = ({ id }) => {
   const router = useRouter();
   const removeTopic = async () => {
-    await fetch(`http://localhost:3000/api/topics?id=${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/topics?id=${id}`, {
       method: "DELETE",
     });
     router.refresh();
