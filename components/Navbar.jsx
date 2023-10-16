@@ -4,7 +4,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 const Navbar = () => {
   const { session, status } = useSession({ required: true });
-  console.log(session, status);
+  console.log("YOur session is", session, status);
   return (
     <nav className="flex justify-between items-center bg-slate-800 px-8 py-3">
       <Link className="text-white font-bold" href={"/"}>
