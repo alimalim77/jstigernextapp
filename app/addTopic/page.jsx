@@ -31,11 +31,14 @@ const AddTopic = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/topics", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/topics`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (res.ok) {
         router.push("/");

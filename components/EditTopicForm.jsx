@@ -49,20 +49,23 @@ const EditTopicForm = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          VendorName: newVendorName,
-          BankName: newBankName,
-          BankAccount: newBankAccount,
-          AddressLineOne: newAddressLineOne,
-          AddressLineTwo: newAddressLineTwo,
-          City: newCity,
-          Country: newCountry,
-          ZipCode: newZipCode,
-        }),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/topics/${id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            VendorName: newVendorName,
+            BankName: newBankName,
+            BankAccount: newBankAccount,
+            AddressLineOne: newAddressLineOne,
+            AddressLineTwo: newAddressLineTwo,
+            City: newCity,
+            Country: newCountry,
+            ZipCode: newZipCode,
+          }),
+        }
+      );
       if (!res.ok) {
         throw new Error("Couldn't connect to server");
       }
