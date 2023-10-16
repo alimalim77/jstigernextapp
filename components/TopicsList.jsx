@@ -70,6 +70,8 @@
 // };
 
 // export default TopicsList;
+
+"use client";
 import React, { useState, useEffect } from "react";
 import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
@@ -92,7 +94,6 @@ const TopicsList = () => {
         }
         const data = await res.json();
         setTopics(data.topics);
-        console.log(data.topics);
       } catch (error) {
         console.error("Error loading topics", error);
         setTopics([]); // Set an empty array or handle the error as appropriate
@@ -109,7 +110,7 @@ const TopicsList = () => {
         <p>Loading...</p>
       ) : topics.length === 0 ? (
         // There was an error loading data
-        <p>Error loading topics</p>
+        <p>There are no current topics</p>
       ) : (
         // Data has been loaded, render it
         topics.map((bankData) => (
@@ -145,7 +146,7 @@ const TopicsList = () => {
               </p>
             </div>
             <div className="flex gap-2">
-              <RemoveBtn id={bankData._id} />
+              <RemoveBtn id={bankData._id} setTopics={setTopics} />
               <Link href={`/editTopic/${bankData._id}`}>
                 <HiPencilAlt size={24} />
               </Link>
