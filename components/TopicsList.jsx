@@ -1,5 +1,3 @@
-"use client";
-import React, { useState, useEffect } from "react";
 import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
 import { HiPencilAlt } from "react-icons/hi";
@@ -21,7 +19,6 @@ const getTopics = async () => {
 // eslint-disable-next-line @next/next/no-async-client-component
 const TopicsList = async () => {
   const { topics } = await getTopics();
-  console.log(topics);
 
   return (
     <>

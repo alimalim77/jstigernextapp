@@ -18,8 +18,6 @@ const EditTopic = async ({ params }) => {
   const { id } = params;
   const { topic } = await getBankNameById(id);
 
-  console.log(topic);
-
   // Unpack the values
   const {
     VendorName,
