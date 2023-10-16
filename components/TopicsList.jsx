@@ -1,8 +1,8 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
 import { HiPencilAlt } from "react-icons/hi";
-import { stringify } from "querystring";
 
 const getTopics = async () => {
   try {
@@ -18,22 +18,48 @@ const getTopics = async () => {
   }
 };
 
+// eslint-disable-next-line @next/next/no-async-client-component
 const TopicsList = async () => {
   const { topics } = await getTopics();
+  console.log(topics);
+
   return (
     <>
-      {topics.map((t) => (
+      {topics.map((bankData) => (
         <div
-          key={t._id}
+          key={bankData._id}
           className="p-4 border border-slate-500 my-3 flex justify-between gap-5 items-start"
         >
           <div>
-            <h2 className="font-bold text-2xl">{t.title}</h2>
-            <div>{t.description}</div>
+            <h2 className="font-bold text-2xl">Bank Details</h2>
+            <p>
+              <strong>Vendor Name:</strong> {bankData.VendorName}
+            </p>
+            <p>
+              <strong>Bank Account:</strong> {bankData.BankAccount}
+            </p>
+            <p>
+              <strong>Bank Name:</strong> {bankData.BankName}
+            </p>
+            <p>
+              <strong>Address Line One:</strong> {bankData.AddressLineOne}
+            </p>
+            <p>
+              <strong>Address Line Two:</strong> {bankData.AddressLineTwo}
+            </p>
+            <p>
+              <strong>City:</strong> {bankData.City}
+            </p>
+            <p>
+              <strong>Country:</strong> {bankData.Country}
+            </p>
+            <p>
+              <strong>Zip Code:</strong> {bankData.ZipCode}
+            </p>
           </div>
           <div className="flex gap-2">
-            <RemoveBtn id={t._id} />
-            <Link href={`/editTopic/${t._id}`}>
+            <RemoveBtn id={bankData._id} />
+            <Link href={`/editTopic/${bankData._id}`}>
               <HiPencilAlt size={24} />
             </Link>
           </div>

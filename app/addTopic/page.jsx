@@ -1,17 +1,91 @@
 "use client";
+// import { useState } from "react";
+// import { useRouter } from "next/navigation";
+
+// const AddTopic = () => {
+//   const [title, setTitle] = useState("");
+//   const [description, setDescription] = useState("");
+//   const router = useRouter();
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     if (!title || !description) {
+//       alert("Please enter a title and description");
+//       return;
+//     }
+
+//     try {
+//       const res = await fetch("http://localhost:3000/api/topics", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({ title: title, description: description }),
+//       });
+
+//       if (res.ok) {
+//         router.push("/");
+//         router.refresh();
+//       } else {
+//         throw new Error("Couldn't create a new topic");
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+
+//   return (
+//     <form className="flex flex-col gap-3" onSubmit={handleSubmit} action="">
+//       <input
+//         onChange={(e) => setTitle(e.target.value)}
+//         value={title}
+//         className="border border-slate-500 px-8 py-2"
+//         type="text"
+//         placeholder="Topic Title"
+//       />
+//       <input
+//         onChange={(e) => setDescription(e.target.value)}
+//         value={description}
+//         className="border border-slate-500 px-8 py-2"
+//         type="text"
+//         placeholder="Topic Description"
+//       />
+//       <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">
+//         Add Topic
+//       </button>
+//     </form>
+//   );
+// };
+
+// export default AddTopic;
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const AddTopic = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [formData, setFormData] = useState({
+    VendorName: "",
+    BankAccount: "",
+    BankName: "",
+    AddressLineOne: "",
+    AddressLineTwo: "",
+    City: "",
+    Country: "",
+    ZipCode: "",
+  });
+
   const router = useRouter();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title || !description) {
-      alert("Please enter a title and description");
+    // Ensure that the required fields are not empty.
+    if (!formData.VendorName || !formData.BankAccount) {
+      alert("Please enter Vendor Name and Bank Account");
       return;
     }
 
@@ -19,7 +93,7 @@ const AddTopic = () => {
       const res = await fetch("http://localhost:3000/api/topics", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: title, description: description }),
+        body: JSON.stringify(formData),
       });
 
       if (res.ok) {
@@ -36,18 +110,68 @@ const AddTopic = () => {
   return (
     <form className="flex flex-col gap-3" onSubmit={handleSubmit} action="">
       <input
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
+        name="VendorName"
+        onChange={handleChange}
+        value={formData.VendorName}
         className="border border-slate-500 px-8 py-2"
         type="text"
-        placeholder="Topic Title"
+        placeholder="Vendor Name"
       />
       <input
-        onChange={(e) => setDescription(e.target.value)}
-        value={description}
+        name="BankAccount"
+        onChange={handleChange}
+        value={formData.BankAccount}
         className="border border-slate-500 px-8 py-2"
         type="text"
-        placeholder="Topic Description"
+        placeholder="Bank Account"
+      />
+      <input
+        name="BankName"
+        onChange={handleChange}
+        value={formData.BankName}
+        className="border border-slate-500 px-8 py-2"
+        type="text"
+        placeholder="Bank Name"
+      />
+      <input
+        name="AddressLineOne"
+        onChange={handleChange}
+        value={formData.AddressLineOne}
+        className="border border-slate-500 px-8 py-2"
+        type="text"
+        placeholder="Address Line 1"
+      />
+      <input
+        name="AddressLineTwo"
+        onChange={handleChange}
+        value={formData.AddressLineTwo}
+        className="border border-slate-500 px-8 py-2"
+        type="text"
+        placeholder="Address Line 2"
+      />
+      <input
+        name="City"
+        onChange={handleChange}
+        value={formData.City}
+        className="border border-slate-500 px-8 py-2"
+        type="text"
+        placeholder="City"
+      />
+      <input
+        name="Country"
+        onChange={handleChange}
+        value={formData.Country}
+        className="border border-slate-500 px-8 py-2"
+        type="text"
+        placeholder="Country"
+      />
+      <input
+        name="ZipCode"
+        onChange={handleChange}
+        value={formData.ZipCode}
+        className="border border-slate-500 px-8 py-2"
+        type="text"
+        placeholder="Zip Code"
       />
       <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">
         Add Topic

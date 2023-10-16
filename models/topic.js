@@ -1,8 +1,14 @@
 import mongoose, { Schema } from "mongoose";
 const topicSchema = new Schema(
   {
-    title: String,
-    description: String,
+    VendorName: String,
+    BankAccount: String,
+    BankName: String,
+    AddressLineOne: String,
+    AddressLineTwo: String,
+    City: String,
+    Country: String,
+    ZipCode: String,
   },
   {
     timestamps: true,
