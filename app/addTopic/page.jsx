@@ -57,14 +57,16 @@ const AddTopic = () => {
         className="border border-slate-500 px-8 py-2"
         type="text"
         placeholder="Vendor Name"
+        required
       />
       <input
         name="BankAccount"
         onChange={handleChange}
         value={formData.BankAccount}
         className="border border-slate-500 px-8 py-2"
-        type="text"
+        type="number"
         placeholder="Bank Account"
+        required
       />
       <input
         name="BankName"
@@ -73,6 +75,7 @@ const AddTopic = () => {
         className="border border-slate-500 px-8 py-2"
         type="text"
         placeholder="Bank Name"
+        required
       />
       <input
         name="AddressLineOne"
@@ -81,6 +84,7 @@ const AddTopic = () => {
         className="border border-slate-500 px-8 py-2"
         type="text"
         placeholder="Address Line 1"
+        required
       />
       <input
         name="AddressLineTwo"
@@ -97,6 +101,7 @@ const AddTopic = () => {
         className="border border-slate-500 px-8 py-2"
         type="text"
         placeholder="City"
+        required
       />
       <input
         name="Country"
@@ -105,6 +110,7 @@ const AddTopic = () => {
         className="border border-slate-500 px-8 py-2"
         type="text"
         placeholder="Country"
+        required
       />
       <input
         name="ZipCode"
@@ -113,6 +119,7 @@ const AddTopic = () => {
         className="border border-slate-500 px-8 py-2"
         type="text"
         placeholder="Zip Code"
+        required
       />
       <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">
         Add Topic

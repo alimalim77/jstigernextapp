@@ -82,6 +82,7 @@ const EditTopicForm = ({
         className="border border-slate-500 px-8 py-2"
         type="text"
         placeholder="Vendor Name"
+        required
       />
       <input
         name="bankName"
@@ -90,14 +91,16 @@ const EditTopicForm = ({
         className="border border-slate-500 px-8 py-2"
         type="text"
         placeholder="Bank Name"
+        required
       />
       <input
         name="bankAccount"
         onChange={handleChange}
         value={newBankAccount}
         className="border border-slate-500 px-8 py-2"
-        type="text"
+        type="number"
         placeholder="Bank Account"
+        required
       />
       <input
         name="addressLineOne"
@@ -106,6 +109,7 @@ const EditTopicForm = ({
         className="border border-slate-500 px-8 py-2"
         type="text"
         placeholder="Address Line 1"
+        required
       />
       <input
         name="addressLineTwo"
@@ -122,6 +126,7 @@ const EditTopicForm = ({
         className="border border-slate-500 px-8 py-2"
         type="text"
         placeholder="City"
+        required
       />
       <input
         name="country"
@@ -130,6 +135,7 @@ const EditTopicForm = ({
         className="border border-slate-500 px-8 py-2"
         type="text"
         placeholder="Country"
+        required
       />
       <input
         name="zipCode"
@@ -138,6 +144,7 @@ const EditTopicForm = ({
         className="border border-slate-500 px-8 py-2"
         type="text"
         placeholder="Zip Code"
+        required
       />
       <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">
         Update Topic
