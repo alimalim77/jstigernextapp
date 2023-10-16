@@ -41,32 +41,33 @@ const getBankNameById = async (id) => {
 
 const EditTopic = async ({ params }) => {
   const { id } = params;
-  const bankData = await getBankNameById(id);
-  console.log("Current bankData is", bankData);
+  const { topic } = await getBankNameById(id);
+
+  console.log(topic);
 
   // Unpack the values
   const {
-    vendorName,
-    bankName,
-    bankAccount,
-    addressLineOne,
-    addressLineTwo,
-    city,
-    country,
-    zipCode,
-  } = bankData;
+    VendorName,
+    BankAccount,
+    BankName,
+    AddressLineOne,
+    AddressLineTwo,
+    City,
+    Country,
+    ZipCode,
+  } = topic;
 
   return (
     <EditTopicForm
       id={id}
-      vendorName={vendorName}
-      bankName={bankName}
-      bankAccount={bankAccount}
-      addressLineOne={addressLineOne}
-      addressLineTwo={addressLineTwo}
-      city={city}
-      country={country}
-      zipCode={zipCode}
+      vendorName={VendorName}
+      bankName={BankName}
+      bankAccount={BankAccount}
+      addressLineOne={AddressLineOne}
+      addressLineTwo={AddressLineTwo}
+      city={City}
+      country={Country}
+      zipCode={ZipCode}
     />
   );
 };
