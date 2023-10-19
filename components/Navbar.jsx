@@ -11,7 +11,7 @@ const Navbar = () => {
         CRUD App
       </Link>
       <Link className="bg-white p-2" href={"/addTopic"}>
-        Add Topic
+        Add Vendor
       </Link>
       {status === "authenticated" ? (
         <button
